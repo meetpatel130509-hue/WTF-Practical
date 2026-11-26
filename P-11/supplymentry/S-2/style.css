@@ -1,0 +1,244 @@
+
+/* GENERAL STYLING */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.section-title {
+    font-weight: bold;
+    color: #17324d;
+    font-size: 32px;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    background-color: #102a43;
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-size: 25px;
+}
+
+.nav-link {
+    color: white !important;
+    margin: 0 8px;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #ffc107 !important;
+}
+
+
+/* HERO SECTION */
+
+.hero-section {
+    min-height: 650px;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.55),
+                    rgba(0,0,0,0.55)),
+    url("https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600")
+    center/cover no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    padding: 100px 15px 40px;
+}
+
+.hero-section h1 {
+    font-size: 55px;
+}
+
+.hero-section p {
+    font-size: 20px;
+}
+
+
+/* ROOM CARDS */
+
+.room-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.room-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.room-card img {
+    height: 230px;
+    object-fit: cover;
+}
+
+.room-card .card-body {
+    padding: 25px;
+}
+
+
+/* PRICING */
+
+.pricing-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px 20px;
+    height: 100%;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+}
+
+.pricing-card h2 {
+    color: #0d6efd;
+    margin: 20px 0;
+}
+
+.pricing-card i {
+    color: green;
+    margin-right: 5px;
+}
+
+.featured {
+    border: 2px solid #ffc107;
+}
+
+
+/* BOOKING SECTION */
+
+.booking-section {
+    background-color: #eaf2f8;
+}
+
+.booking-box {
+    max-width: 650px;
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.form-control,
+.form-select {
+    padding: 12px;
+}
+
+
+/* TESTIMONIALS */
+
+.testimonial-card {
+    height: 100%;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.testimonial-card h5 {
+    color: #17324d;
+    font-weight: bold;
+}
+
+.stars {
+    color: #f5a623;
+    font-size: 22px;
+}
+
+
+/* CONTACT SECTION */
+
+.contact-section {
+    background-color: #17324d;
+    color: white;
+}
+
+.contact-section h2 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 17px;
+}
+
+
+/* FOOTER */
+
+footer {
+    background-color: #0b1f33;
+    color: white;
+    padding: 25px 10px 10px;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+
+    .hero-section {
+        min-height: 500px;
+    }
+
+    .hero-section h1 {
+        font-size: 35px;
+    }
+
+    .hero-section p {
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 27px;
+    }
+
+    .booking-box {
+        padding: 20px;
+    }
+
+    .navbar-nav {
+        padding: 10px 0;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .hero-section h1 {
+        font-size: 29px;
+    }
+
+    .hero-section {
+        min-height: 450px;
+    }
+
+    .room-card img {
+        height: 200px;
+    }
+
+}
