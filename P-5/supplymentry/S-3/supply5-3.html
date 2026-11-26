@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Online event registration form">
+  <title>Event Registration</title>
+  <style>
+    :root {
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #202640;
+      background: #f5f4f1;
+      font-synthesis: none;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      padding: 40px 18px;
+      background:
+        radial-gradient(ellipse at 90% 0, #f5e5dd 0, transparent 34rem),
+        #f5f4f1;
+    }
+
+    .registration-card {
+      width: min(100%, 860px);
+      margin: 0 auto;
+      overflow: hidden;
+      border: 1px solid #e9e2df;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 18px 48px rgb(45 35 32 / 10%);
+    }
+
+    .event-header {
+      padding: 32px 38px;
+      color: white;
+      background: linear-gradient(120deg, #743b36, #a65346);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: #f4d9d2;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.7rem, 4vw, 2.25rem);
+    }
+
+    .event-header p:last-child {
+      max-width: 620px;
+      margin: 10px 0 0;
+      color: #f9e9e5;
+      line-height: 1.6;
+    }
+
+    form {
+      padding: 30px 38px 36px;
+    }
+
+    fieldset {
+      min-width: 0;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    fieldset + fieldset {
+      margin-top: 30px;
+    }
+
+    legend {
+      width: 100%;
+      margin-bottom: 18px;
+      padding: 0 0 10px;
+      border-bottom: 1px solid #eee8e5;
+      color: #743b36;
+      font-size: 1.12rem;
+      font-weight: 700;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px 20px;
+    }
+
+    .field {
+      min-width: 0;
+    }
+
+    .full-width {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      color: #30394e;
+      font-size: 0.9rem;
+      font-weight: 650;
+    }
+
+    .required {
+      color: #b42318;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 12px;
+      border: 1px solid #cfcbd0;
+      border-radius: 7px;
+      background: #fff;
+      color: #202640;
+      font: inherit;
+      transition: border-color 140ms ease, box-shadow 140ms ease;
+    }
+
+    textarea {
+      min-height: 82px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #a65346;
+      outline: 0;
+      box-shadow: 0 0 0 3px rgb(166 83 70 / 15%);
+    }
+
+    input:user-invalid,
+    select:user-invalid,
+    textarea:user-invalid {
+      border-color: #b42318;
+    }
+
+    .hint {
+      margin: 6px 0 0;
+      color: #686b76;
+      font-size: 0.78rem;
+      line-height: 1.45;
+    }
+
+    .total-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 20px;
+      padding: 14px 16px;
+      border: 1px solid #f0dfda;
+      border-radius: 8px;
+      background: #fff8f5;
+    }
+
+    .total-label {
+      color: #4e4b52;
+      font-weight: 650;
+    }
+
+    #total-amount {
+      color: #743b36;
+      font-size: 1.25rem;
+      font-weight: 750;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .payment-warning {
+      margin: 0 0 18px;
+      padding: 12px 14px;
+      border-left: 4px solid #d39b46;
+      border-radius: 4px;
+      background: #fff8e8;
+      color: #674b1d;
+      font-size: 0.84rem;
+      line-height: 1.5;
+    }
+
+    #card-fields[hidden] {
+      display: none;
+    }
+
+    .consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 26px;
+      color: #414759;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .consent input {
+      flex: 0 0 auto;
+      width: 18px;
+      min-height: 18px;
+      height: 18px;
+      margin: 2px 0 0;
+      accent-color: #93483f;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    button {
+      min-height: 46px;
+      padding: 11px 20px;
+      border: 0;
+      border-radius: 7px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button[type="submit"] {
+      color: #fff;
+      background: #873f38;
+    }
+
+    button[type="submit"]:hover {
+      background: #6d302b;
+    }
+
+    button[type="reset"] {
+      color: #414759;
+      background: #efedef;
+    }
+
+    button:focus-visible {
+      outline: 3px solid #d89485;
+      outline-offset: 2px;
+    }
+
+    #confirmation {
+      margin: 22px 0 0;
+      padding: 14px 16px;
+      border-radius: 8px;
+      line-height: 1.55;
+    }
+
+    #confirmation:empty {
+      display: none;
+    }
+
+    #confirmation.success {
+      color: #14532d;
+      background: #dcfce7;
+    }
+
+    #confirmation.error {
+      color: #991b1b;
+      background: #fee2e2;
+    }
+
+    .form-note {
+      margin: 18px 0 0;
+      color: #686b76;
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 620px) {
+      body {
+        padding: 16px 10px;
+      }
+
+      .event-header,
+      form {
+        padding: 24px 20px;
+      }
+
+      .field-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .full-width {
+        grid-column: auto;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="registration-card">
+    <header class="event-header">
+      <p class="eyebrow">You're invited</p>
+      <h1>Event Registration</h1>
+      <p>Reserve your place, choose a ticket, and provide your participant and payment details.</p>
+    </header>
+
+    <form id="event-form">
+      <fieldset>
+        <legend>Participant Details</legend>
+        <div class="field-grid">
+          <div class="field">
+            <label for="full-name">Full name <span class="required" aria-hidden="true">*</span></label>
+            <input id="full-name" name="fullName" type="text" autocomplete="name" minlength="2" maxlength="100" pattern="[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ .'-]*" title="Enter a name using letters, spaces, apostrophes, periods, or hyphens." required>
+          </div>
+          <div class="field">
+            <label for="email">Email address <span class="required" aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required>
+          </div>
+          <div class="field">
+            <label for="phone">Mobile number <span class="required" aria-hidden="true">*</span></label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" pattern="\+?[0-9][0-9 ()-]{6,18}[0-9]" title="Enter 8 to 20 digits. You may use a leading plus sign, spaces, parentheses, or hyphens." placeholder="+1 555 123 4567" required>
+          </div>
+          <div class="field">
+            <label for="ticket-type">Ticket type <span class="required" aria-hidden="true">*</span></label>
+            <select id="ticket-type" name="ticketType" required>
+              <option value="" data-price="0" selected disabled>Select a ticket</option>
+              <option value="standard" data-price="49">Standard — $49</option>
+              <option value="student" data-price="25">Student — $25</option>
+              <option value="vip" data-price="99">VIP — $99</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="quantity">Number of tickets <span class="required" aria-hidden="true">*</span></label>
+            <input id="quantity" name="quantity" type="number" inputmode="numeric" min="1" max="5" step="1" value="1" required>
+            <p class="hint">Limit 5 tickets per registration.</p>
+          </div>
+          <div class="field">
+            <label for="session">Preferred session <span class="required" aria-hidden="true">*</span></label>
+            <select id="session" name="session" required>
+              <option value="" selected disabled>Select a session</option>
+              <option value="morning">Morning session</option>
+              <option value="afternoon">Afternoon session</option>
+              <option value="full-day">Full-day access</option>
+            </select>
+          </div>
+          <div class="field full-width">
+            <label for="dietary">Dietary or accessibility requests</label>
+            <textarea id="dietary" name="dietary" maxlength="300" placeholder="Optional"></textarea>
+          </div>
+        </div>
+        <div class="total-box" aria-live="polite">
+          <span class="total-label">Registration total</span>
+          <output id="total-amount" for="ticket-type quantity">$0.00</output>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Payment Information</legend>
+        <div class="field-grid">
+          <div class="field full-width">
+            <label for="payment-method">Payment method <span class="required" aria-hidden="true">*</span></label>
+            <select id="payment-method" name="paymentMethod" required>
+              <option value="" selected disabled>Select a payment method</option>
+              <option value="card">Credit / debit card (demo only)</option>
+              <option value="bank">Bank transfer (pay separately)</option>
+              <option value="onsite">Pay at the event</option>
+            </select>
+          </div>
+        </div>
+
+        <section id="card-fields" aria-labelledby="card-heading" hidden>
+          <p class="payment-warning" id="card-heading">Demo only: use test data, not a real payment card. This form does not process payments or transmit card details.</p>
+          <div class="field-grid">
+            <div class="field">
+              <label for="cardholder">Name on card <span class="required" aria-hidden="true">*</span></label>
+              <input id="cardholder" name="cardholder" type="text" autocomplete="cc-name" minlength="2" maxlength="100" disabled>
+            </div>
+            <div class="field">
+              <label for="card-number">Card number <span class="required" aria-hidden="true">*</span></label>
+              <input id="card-number" name="cardNumber" type="text" inputmode="numeric" autocomplete="cc-number" pattern="[0-9 ]{12,23}" maxlength="23" title="Enter a card number with 13 to 19 digits." disabled>
+            </div>
+            <div class="field">
+              <label for="expiry">Expiry month <span class="required" aria-hidden="true">*</span></label>
+              <select id="expiry" name="expiry" autocomplete="cc-exp-month" disabled>
+                <option value="" selected disabled>Month</option>
+                <option value="01">01 - January</option>
+                <option value="02">02 - February</option>
+                <option value="03">03 - March</option>
+                <option value="04">04 - April</option>
+                <option value="05">05 - May</option>
+                <option value="06">06 - June</option>
+                <option value="07">07 - July</option>
+                <option value="08">08 - August</option>
+                <option value="09">09 - September</option>
+                <option value="10">10 - October</option>
+                <option value="11">11 - November</option>
+                <option value="12">12 - December</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="expiry-year">Expiry year <span class="required" aria-hidden="true">*</span></label>
+              <select id="expiry-year" name="expiryYear" autocomplete="cc-exp-year" disabled>
+                <option value="" selected disabled>Year</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="security-code">Security code <span class="required" aria-hidden="true">*</span></label>
+              <input id="security-code" name="securityCode" type="password" inputmode="numeric" autocomplete="cc-csc" pattern="[0-9]{3,4}" minlength="3" maxlength="4" title="Enter the 3 or 4 digit security code." disabled>
+            </div>
+            <div class="field">
+              <label for="billing-postal">Billing postal code <span class="required" aria-hidden="true">*</span></label>
+              <input id="billing-postal" name="billingPostal" type="text" autocomplete="billing postal-code" minlength="2" maxlength="16" pattern="[A-Za-z0-9 -]{2,16}" title="Enter a valid postal code." disabled>
+            </div>
+          </div>
+        </section>
+      </fieldset>
+
+      <label class="consent" for="terms">
+        <input id="terms" name="terms" type="checkbox" required>
+        <span>I have reviewed my registration details and agree to the event terms. <span class="required" aria-hidden="true">*</span></span>
+      </label>
+
+      <div class="actions">
+        <button type="submit">Complete registration</button>
+        <button type="reset">Clear form</button>
+      </div>
+      <p id="confirmation" role="status" aria-live="polite"></p>
+      <p class="form-note">This standalone demo validates entries in your browser only. It does not reserve tickets, process a payment, or save personal information. Use a secure payment provider and server-side validation for a live event.</p>
+    </form>
+  </main>
+
+  <script>
+    const form = document.getElementById("event-form");
+    const ticketType = document.getElementById("ticket-type");
+    const quantity = document.getElementById("quantity");
+    const totalAmount = document.getElementById("total-amount");
+    const paymentMethod = document.getElementById("payment-method");
+    const cardFields = document.getElementById("card-fields");
+    const cardInputs = cardFields.querySelectorAll("input, select");
+    const cardNumber = document.getElementById("card-number");
+    const expiryMonth = document.getElementById("expiry");
+    const expiryYear = document.getElementById("expiry-year");
+    const confirmation = document.getElementById("confirmation");
+    const thisYear = new Date().getFullYear();
+
+    for (let year = thisYear; year <= thisYear + 15; year += 1) {
+      const option = document.createElement("option");
+      option.value = String(year);
+      option.textContent = String(year);
+      expiryYear.append(option);
+    }
+
+    function updateTotal() {
+      const selectedTicket = ticketType.options[ticketType.selectedIndex];
+      const unitPrice = Number(selectedTicket.dataset.price || 0);
+      const ticketCount = Number(quantity.value);
+      const total = Number.isFinite(ticketCount) ? unitPrice * ticketCount : 0;
+      totalAmount.value = `$${total.toFixed(2)}`;
+      totalAmount.textContent = totalAmount.value;
+    }
+
+    function updatePaymentFields() {
+      const cardSelected = paymentMethod.value === "card";
+      cardFields.hidden = !cardSelected;
+      cardInputs.forEach((input) => {
+        input.disabled = !cardSelected;
+        input.required = cardSelected;
+      });
+      validateCard();
+    }
+
+    function passesLuhn(value) {
+      const digits = value.replace(/\D/g, "");
+      if (digits.length < 13 || digits.length > 19) {
+        return false;
+      }
+
+      let sum = 0;
+      let doubleDigit = false;
+      for (let index = digits.length - 1; index >= 0; index -= 1) {
+        let digit = Number(digits[index]);
+        if (doubleDigit) {
+          digit *= 2;
+          if (digit > 9) digit -= 9;
+        }
+        sum += digit;
+        doubleDigit = !doubleDigit;
+      }
+      return sum % 10 === 0;
+    }
+
+    function validateCard() {
+      if (paymentMethod.value !== "card") {
+        cardNumber.setCustomValidity("");
+        expiryMonth.setCustomValidity("");
+        expiryYear.setCustomValidity("");
+        return;
+      }
+
+      cardNumber.setCustomValidity(
+        passesLuhn(cardNumber.value) ? "" : "Enter a valid 13 to 19 digit card number."
+      );
+
+      const month = Number(expiryMonth.value);
+      const year = Number(expiryYear.value);
+      const now = new Date();
+      const currentMonth = now.getMonth() + 1;
+      const currentYear = now.getFullYear();
+      const expiryValid = month > 0 && year > 0 &&
+        (year > currentYear || (year === currentYear && month >= currentMonth));
+      const expiryMessage = expiryValid ? "" : "Enter a valid, unexpired card expiry date.";
+      expiryMonth.setCustomValidity(expiryMessage);
+      expiryYear.setCustomValidity(expiryMessage);
+    }
+
+    ticketType.addEventListener("change", updateTotal);
+    quantity.addEventListener("input", updateTotal);
+    paymentMethod.addEventListener("change", updatePaymentFields);
+    cardNumber.addEventListener("input", validateCard);
+    expiryMonth.addEventListener("change", validateCard);
+    expiryYear.addEventListener("change", validateCard);
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      validateCard();
+      confirmation.className = "";
+      confirmation.textContent = "";
+
+      if (!form.reportValidity()) {
+        return;
+      }
+
+      const participantName = document.getElementById("full-name").value.trim();
+      const selectedTicket = ticketType.options[ticketType.selectedIndex].text.split(" — ")[0];
+      const count = Number(quantity.value);
+      const paymentLabel = paymentMethod.options[paymentMethod.selectedIndex].text;
+      confirmation.className = "success";
+      confirmation.textContent =
+        `Thank you, ${participantName}! Your ${count} ${selectedTicket} ticket${count === 1 ? "" : "s"} ` +
+        `(${totalAmount.value}) passed validation. Payment method: ${paymentLabel}. ` +
+        "This demo has not processed payment or reserved your place.";
+    });
+
+    form.addEventListener("reset", () => {
+      confirmation.className = "";
+      confirmation.textContent = "";
+      window.setTimeout(() => {
+        updateTotal();
+        updatePaymentFields();
+      }, 0);
+    });
+
+    updateTotal();
+    updatePaymentFields();
+  </script>
+</body>
+</html>

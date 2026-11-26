@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>📝 My To-Do List</h1>
+            <p>Organize your daily tasks easily!</p>
+        </header>
+
+        <!-- Add Task Section -->
+        <section class="task-input">
+            <input type="text" id="taskInput"
+                placeholder="Enter your task..." maxlength="100">
+
+            <button id="addButton">Add Task</button>
+        </section>
+
+        <!-- Task Statistics -->
+        <section class="statistics">
+            <div class="stat-card">
+                <h3>Total Tasks</h3>
+                <p id="totalTasks">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Completed</h3>
+                <p id="completedTasks">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Pending</h3>
+                <p id="pendingTasks">0</p>
+            </div>
+        </section>
+
+        <!-- Filter Buttons -->
+        <section class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="pending">Pending</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </section>
+
+        <!-- Task List -->
+        <section class="task-section">
+            <h2>My Tasks</h2>
+
+            <ul id="taskList">
+                <!-- Tasks are added dynamically -->
+            </ul>
+
+            <p id="emptyMessage">No tasks available. Add your first task!</p>
+        </section>
+
+        <footer>
+            <p>© 2026 Interactive To-Do List</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

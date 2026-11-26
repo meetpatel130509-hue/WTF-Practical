@@ -1,0 +1,258 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+}
+
+header {
+    background: #243b64;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
+
+header h1 {
+    margin-bottom: 8px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+/* Summary Cards */
+.summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.summary-card {
+    background: white;
+    padding: 22px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.summary-card h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.summary-card p {
+    font-size: 28px;
+    font-weight: bold;
+    color: #243b64;
+}
+
+.present p {
+    color: #198754;
+}
+
+.absent p {
+    color: #dc3545;
+}
+
+.percentage p {
+    color: #0d6efd;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.controls label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input {
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.controls input {
+    width: 100%;
+}
+
+/* Add Student */
+.add-student,
+.attendance-section {
+    background: white;
+    padding: 22px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+h2 {
+    margin-bottom: 18px;
+    color: #243b64;
+}
+
+#studentForm {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+#studentForm input {
+    flex: 1;
+    min-width: 150px;
+}
+
+button {
+    background: #0d6efd;
+    color: white;
+    border: none;
+    padding: 11px 17px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+/* Attendance Table */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+th,
+td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #243b64;
+    color: white;
+}
+
+tr:hover {
+    background: #f1f5fa;
+}
+
+/* Status Labels */
+.status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.status.present {
+    background: #d1e7dd;
+    color: #146c43;
+}
+
+.status.absent {
+    background: #f8d7da;
+    color: #b02a37;
+}
+
+.status.not-marked {
+    background: #e2e3e5;
+    color: #41464b;
+}
+
+/* Action Buttons */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.reset {
+    background: #dc3545;
+}
+
+.delete-btn {
+    background: #dc3545;
+    padding: 7px 12px;
+}
+
+#message {
+    text-align: center;
+    font-weight: bold;
+    margin: 15px;
+    color: #198754;
+}
+
+footer {
+    background: #243b64;
+    color: white;
+    text-align: center;
+    padding: 18px;
+    margin-top: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    #studentForm {
+        flex-direction: column;
+    }
+
+    #studentForm input,
+    #studentForm button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .summary {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 23px;
+    }
+
+    .container {
+        width: 94%;
+    }
+
+    .add-student,
+    .attendance-section {
+        padding: 15px;
+    }
+}

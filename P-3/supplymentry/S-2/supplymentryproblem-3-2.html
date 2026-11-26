@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#f2f5f0">
+	<title>Electricity Bill Calculator</title>
+	<link rel="stylesheet" href="supplymentryproblem3-2.css">
+</head>
+<body>
+	<main class="page">
+		<header class="masthead">
+			<div class="brand"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 10-13h-7l1-7Z"/></svg></span> HOME / UTILITIES</div>
+			<div class="sample-note">Sample rates shown in ₹ per unit<br>Adjust slabs to match your tariff</div>
+		</header>
+		<section class="intro" aria-labelledby="page-title">
+			<div><p class="eyebrow">Monthly usage</p><h1 id="page-title">Electricity Bill<br>Calculator</h1></div>
+			<div class="intro-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 10-13h-7l1-7Z"/></svg></div>
+		</section>
+		<div class="layout">
+			<form class="panel input-panel" id="bill-form" novalidate>
+				<div class="section-heading"><h2>Consumption</h2><span class="section-note">Enter meter usage</span></div>
+				<label for="units">Electricity consumed</label>
+				<div class="units-control"><input id="units" name="units" type="number" min="0" step="any" inputmode="decimal" placeholder="e.g. 385" aria-describedby="units-help"><span class="unit-suffix" id="units-help">kilowatt-hours (kWh)</span></div>
+				<div class="fixed-charge"><label for="fixed-charge">Fixed charge <span class="section-note">(optional)</span></label><input id="fixed-charge" name="fixedCharge" type="number" min="0" step="0.01" inputmode="decimal" value="0"></div>
+				<div class="section-heading tariff-heading"><h2>Tariff slabs</h2><span class="section-note">Progressive rate per unit</span></div>
+				<div class="tariff-table-head" aria-hidden="true"><span>Up to units</span><span>₹ / unit</span><span></span></div>
+				<div class="slabs" id="slabs"></div>
+				<button class="add-slab" id="add-slab" type="button"><span aria-hidden="true">+</span> Add slab</button>
+				<p class="error" id="form-error" role="alert" aria-live="polite"></p>
+				<div class="actions"><button class="calculate" type="submit">Calculate bill</button><button class="clear" type="reset">Reset</button></div>
+			</form>
+			<aside class="panel bill-panel" id="bill-panel" data-state="empty" aria-label="Bill summary" aria-live="polite">
+				<div class="bill-hero"><p class="bill-label">Estimated total</p><p class="bill-total"><span class="currency">₹</span><span id="bill-total">0.00</span></p><p class="bill-caption" id="bill-caption">Enter your consumption to calculate.</p></div>
+				<div class="breakdown"><h2>Charge breakdown</h2><div class="breakdown-head"><span>Slab</span><span>Units</span><span>Charge</span></div><div id="breakdown-rows"><p class="empty-breakdown">Your slab-wise charges will appear here.</p></div></div>
+			</aside>
+		</div>
+	</main>
+	<script src="supplymentryproblem3-2.js" defer></script>
+</body>
+</html>

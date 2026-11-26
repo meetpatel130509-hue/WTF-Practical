@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🎬 Movie Explorer</h1>
+        <p>Discover your favourite movies</p>
+    </header>
+
+    <main class="container">
+
+        <section class="search-section">
+            <h2>Find Movies</h2>
+
+            <form id="searchForm">
+                <input
+                    type="text"
+                    id="movieInput"
+                    placeholder="Enter movie name..."
+                    required
+                >
+                <button type="submit">Search</button>
+            </form>
+
+            <div class="genre-section">
+                <label for="genre">Choose Your Preferred Genre:</label>
+
+                <select id="genre">
+                    <option value="All">All Genres</option>
+                    <option value="Action">Action</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Thriller">Thriller</option>
+                    <option value="Sci-Fi">Sci-Fi</option>
+                    <option value="Animation">Animation</option>
+                </select>
+
+                <p id="savedMessage"></p>
+            </div>
+        </section>
+
+        <section class="movies-section">
+            <h2>Movie Results</h2>
+
+            <div id="movieContainer" class="movie-container">
+                <p class="info">Search for a movie to get started!</p>
+            </div>
+        </section>
+
+        <section id="detailsSection" class="details-section" hidden>
+            <h2>Movie Details</h2>
+            <div id="movieDetails"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Movie Explorer | Powered by OMDb API</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

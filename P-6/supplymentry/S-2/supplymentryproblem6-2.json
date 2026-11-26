@@ -1,0 +1,51 @@
+
+[
+    {
+        "id": 1,
+        "title": "Artificial Intelligence Is Transforming Education",
+        "description": "Educational institutions are using AI tools to improve personalized learning and student performance.",
+        "category": "Technology",
+        "date": "2026-10-12",
+        "url": "https://example.com/news/1"
+    },
+    {
+        "id": 2,
+        "title": "Cybersecurity Awareness Grows Worldwide",
+        "description": "Organizations are investing in cybersecurity to protect sensitive information and prevent online attacks.",
+        "category": "Security",
+        "date": "2026-10-12",
+        "url": "https://example.com/news/2"
+    },
+    {
+        "id": 3,
+        "title": "New Developments in Space Exploration",
+        "description": "Scientists are developing new technologies to support future space missions and exploration.",
+        "category": "Science",
+        "date": "2026-10-12",
+        "url": "https://example.com/news/3"
+    },
+    {
+        "id": 4,
+        "title": "Students Showcase Innovative Projects",
+        "description": "College students are presenting creative engineering projects at technology festivals.",
+        "category": "Education",
+        "date": "2026-10-12",
+        "url": "https://example.com/news/4"
+    },
+    {
+        "id": 5,
+        "title": "Renewable Energy Technologies Advance",
+        "description": "Researchers are exploring new methods to improve solar and wind energy efficiency.",
+        "category": "Environment",
+        "date": "2026-10-12",
+        "url": "https://example.com/news/5"
+    },
+    {
+        "id": 6,
+        "title": "Cloud Computing Supports Digital Innovation",
+        "description": "Cloud platforms help businesses store data, develop applications, and scale digital services.",
+        "category": "Technology",
+        "date": "2026-10-12",
+        "url": "https://example.com/news/6"
+    }
+]

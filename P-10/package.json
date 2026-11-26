@@ -1,0 +1,19 @@
+
+{
+  "name": "finsecure-employee-portal",
+  "version": "1.0.0",
+  "description": "Secure employee management portal",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^16.0.0",
+    "express": "^5.0.0",
+    "express-rate-limit": "^8.0.0",
+    "express-session": "^1.18.0",
+    "helmet": "^8.0.0",
+    "mysql2": "^3.0.0"
+  }
+}

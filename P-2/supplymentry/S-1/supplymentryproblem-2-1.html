@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Harborview Medical Center | Care that moves with you</title>
+	<meta name="description" content="Harborview Medical Center provides expert, compassionate hospital care, emergency services, and specialist appointments.">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--ink: #17343b;
+			--muted: #63777b;
+			--teal: #0c7776;
+			--teal-deep: #075b60;
+			--mint: #dff4ee;
+			--paper: #f7fbfa;
+			--white: #ffffff;
+			--coral: #e36f5d;
+			--line: #dcebea;
+			--shadow: 0 18px 50px rgba(25, 75, 76, .10);
+		}
+
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body {
+			margin: 0;
+			color: var(--ink);
+			background: var(--paper);
+			font-family: "DM Sans", sans-serif;
+			line-height: 1.5;
+		}
+		a { color: inherit; text-decoration: none; }
+		button { font: inherit; }
+		.container { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+
+		.topbar { background: var(--ink); color: #e9f5f3; font-size: .82rem; }
+		.topbar-inner { min-height: 38px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+		.topbar p { margin: 0; }
+		.topbar a { color: #a9e0d8; font-weight: 700; }
+		.topbar-links { display: flex; gap: 22px; }
+
+		header { background: var(--white); border-bottom: 1px solid rgba(220, 235, 234, .8); }
+		.nav { min-height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+		.brand { display: flex; align-items: center; gap: 11px; font-family: Manrope, sans-serif; font-size: 1.04rem; line-height: 1.1; }
+		.brand-mark { width: 39px; height: 39px; display: grid; place-items: center; color: var(--white); background: var(--teal); border-radius: 12px 12px 12px 3px; font-size: 1.65rem; font-weight: 400; }
+		.brand small { display: block; color: var(--muted); font-family: "DM Sans", sans-serif; font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; }
+		.nav-links { display: flex; align-items: center; gap: 30px; color: #466166; font-size: .9rem; font-weight: 600; }
+		.nav-links a:hover { color: var(--teal); }
+		.nav-cta, .hero-cta { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 0; border-radius: 7px; background: var(--teal); color: var(--white); padding: 13px 19px; font-weight: 700; cursor: pointer; transition: transform .2s, background .2s; }
+		.nav-cta:hover, .hero-cta:hover { background: var(--teal-deep); transform: translateY(-2px); }
+		.menu-button { display: none; background: transparent; border: 0; color: var(--ink); font-size: 1.5rem; }
+
+		.hero { overflow: hidden; background: #eaf7f3; }
+		.hero-grid { min-height: 550px; display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 60px; }
+		.eyebrow { display: flex; align-items: center; gap: 9px; color: var(--teal); text-transform: uppercase; letter-spacing: .14em; font-size: .72rem; font-weight: 700; }
+		.eyebrow::before { content: ""; width: 27px; height: 2px; background: var(--coral); }
+		h1, h2, h3 { font-family: Manrope, sans-serif; line-height: 1.08; }
+		h1 { max-width: 540px; margin: 20px 0; font-size: clamp(2.8rem, 5vw, 4.8rem); letter-spacing: -.055em; }
+		.hero-copy > p { max-width: 485px; margin: 0 0 30px; color: var(--muted); font-size: 1.05rem; }
+		.hero-actions { display: flex; align-items: center; gap: 25px; }
+		.text-link { color: var(--teal-deep); font-weight: 700; }
+		.text-link span { margin-left: 6px; transition: margin .2s; }
+		.text-link:hover span { margin-left: 11px; }
+		.hero-visual { position: relative; align-self: stretch; min-height: 510px; display: flex; align-items: end; justify-content: end; }
+		.hero-image { width: min(100%, 545px); height: 450px; object-fit: cover; object-position: center; border-radius: 190px 14px 14px 14px; box-shadow: var(--shadow); }
+		.hero-badge { position: absolute; left: 12px; bottom: 60px; display: flex; align-items: center; gap: 13px; max-width: 205px; padding: 14px 17px; background: var(--white); border-radius: 10px; box-shadow: var(--shadow); font-size: .8rem; font-weight: 700; }
+		.badge-icon { display: grid; place-items: center; flex: 0 0 31px; width: 31px; height: 31px; background: #ffe8df; border-radius: 50%; color: var(--coral); }
+
+		.quick-links { position: relative; z-index: 2; margin-top: -37px; }
+		.quick-grid { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--white); box-shadow: var(--shadow); border-radius: 10px; overflow: hidden; }
+		.quick-item { display: flex; align-items: center; gap: 15px; padding: 21px 25px; border-right: 1px solid var(--line); }
+		.quick-item:last-child { border: 0; }
+		.quick-icon { display: grid; place-items: center; flex: 0 0 42px; width: 42px; height: 42px; border-radius: 50%; background: var(--mint); color: var(--teal); font-size: 1.2rem; }
+		.quick-item strong { display: block; font-size: .94rem; }
+		.quick-item span { display: block; margin-top: 2px; color: var(--muted); font-size: .78rem; }
+
+		section { padding: 100px 0; }
+		.section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 35px; }
+		.section-head h2 { margin: 12px 0 0; font-size: clamp(2rem, 3.3vw, 3rem); letter-spacing: -.045em; }
+		.section-head > p { max-width: 345px; margin: 0; color: var(--muted); font-size: .92rem; }
+		.departments { background: var(--white); }
+		.department-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+		.department { min-height: 190px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; transition: border-color .2s, transform .2s, box-shadow .2s; }
+		.department:hover { border-color: #9bcfc6; transform: translateY(-4px); box-shadow: var(--shadow); }
+		.department-icon { display: inline-grid; place-items: center; width: 43px; height: 43px; margin-bottom: 24px; border-radius: 8px; background: #eef8f5; color: var(--teal); font-size: 1.25rem; }
+		.department h3 { margin: 0 0 7px; font-size: 1.06rem; }
+		.department p { margin: 0; color: var(--muted); font-size: .81rem; }
+		.department a { display: inline-block; margin-top: 16px; color: var(--teal); font-size: .8rem; font-weight: 700; }
+
+		.care { background: var(--ink); color: var(--white); }
+		.care .eyebrow { color: #91d9cb; }
+		.care .section-head > p { color: #a6bdbe; }
+		.doctor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+		.doctor { display: grid; grid-template-columns: 92px 1fr; align-items: center; gap: 17px; padding: 16px; background: #21454a; border: 1px solid #365e61; border-radius: 8px; }
+		.doctor img { width: 92px; height: 106px; object-fit: cover; border-radius: 6px; }
+		.doctor h3 { margin: 0 0 5px; font-size: 1rem; }
+		.doctor p { margin: 0; color: #a9c2c0; font-size: .78rem; }
+		.doctor .specialty { margin-top: 13px; color: #8ce0d0; font-weight: 700; }
+
+		.emergency { padding: 44px 0; background: var(--coral); color: var(--white); }
+		.emergency-inner { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+		.emergency h2 { margin: 0 0 7px; font-size: 1.8rem; letter-spacing: -.03em; }
+		.emergency p { margin: 0; color: #ffe9e3; font-size: .94rem; }
+		.emergency-phone { display: flex; align-items: center; gap: 13px; white-space: nowrap; font-family: Manrope, sans-serif; font-size: 1.55rem; }
+		.phone-circle { display: grid; place-items: center; width: 42px; height: 42px; background: rgba(255,255,255,.17); border-radius: 50%; }
+
+		.contact { background: #eef8f5; }
+		.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+		.contact h2 { margin: 12px 0 15px; font-size: 2.65rem; letter-spacing: -.05em; }
+		.contact-intro { max-width: 450px; color: var(--muted); }
+		.contact-details { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 20px; margin-top: 28px; }
+		.contact-details strong { display: block; margin-bottom: 5px; font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; }
+		.contact-details span { color: var(--muted); font-size: .88rem; }
+		.map-card { min-height: 290px; position: relative; overflow: hidden; border-radius: 9px; background: #bddcd4 url("https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=900&q=85") center/cover; }
+		.map-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,70,74,.2), transparent 60%); }
+		.map-label { position: absolute; z-index: 1; left: 25px; bottom: 23px; padding: 11px 15px; background: var(--white); border-radius: 6px; box-shadow: var(--shadow); font-weight: 700; font-size: .83rem; }
+
+		footer { padding: 28px 0; background: var(--white); border-top: 1px solid var(--line); }
+		.footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; color: var(--muted); font-size: .78rem; }
+		.footer-links { display: flex; gap: 24px; }
+
+		@media (max-width: 900px) {
+			.nav-links { display: none; }
+			.menu-button { display: block; }
+			.hero-grid { grid-template-columns: 1fr; min-height: auto; padding-top: 75px; }
+			.hero-visual { min-height: 420px; }
+			.hero-image { height: 390px; }
+			.department-grid { grid-template-columns: repeat(2, 1fr); }
+			.doctor-grid { grid-template-columns: 1fr; }
+		}
+		@media (max-width: 620px) {
+			.container { width: min(100% - 32px, 500px); }
+			.topbar-inner { min-height: 34px; justify-content: center; }
+			.topbar-links { display: none; }
+			.nav { min-height: 72px; }
+			.nav-cta { display: none; }
+			.hero-grid { padding-top: 55px; gap: 30px; }
+			h1 { font-size: 2.8rem; }
+			.hero-actions { align-items: flex-start; flex-direction: column; gap: 18px; }
+			.hero-visual { min-height: 330px; }
+			.hero-image { width: 90%; height: 310px; border-radius: 125px 10px 10px 10px; }
+			.hero-badge { left: 0; bottom: 24px; }
+			.quick-links { margin-top: 0; padding-top: 16px; }
+			.quick-grid { grid-template-columns: 1fr; }
+			.quick-item { border-right: 0; border-bottom: 1px solid var(--line); }
+			section { padding: 70px 0; }
+			.section-head { display: block; margin-bottom: 26px; }
+			.section-head > p { margin-top: 15px; }
+			.department-grid { grid-template-columns: 1fr 1fr; gap: 9px; }
+			.department { min-height: 175px; padding: 16px; }
+			.department-icon { margin-bottom: 16px; }
+			.emergency-inner { display: block; }
+			.emergency-phone { margin-top: 22px; }
+			.contact-grid { grid-template-columns: 1fr; gap: 35px; }
+			.contact h2 { font-size: 2.25rem; }
+			.contact-details { gap: 20px 8px; }
+			.footer-inner { display: block; }
+			.footer-links { margin-top: 14px; }
+		}
+	</style>
+</head>
+<body>
+	<div class="topbar"><div class="container topbar-inner"><p>For urgent medical help, call <a href="tel:911">911</a></p><div class="topbar-links"><a href="#contact">Patient portal</a><a href="#contact">Visitor information</a></div></div></div>
+	<header>
+		<nav class="container nav" aria-label="Main navigation">
+			<a class="brand" href="#top"><span class="brand-mark">+</span><span>HARBORVIEW<small>Medical Center</small></span></a>
+			<div class="nav-links"><a href="#departments">Departments</a><a href="#doctors">Our doctors</a><a href="#emergency">Emergency care</a><a href="#contact">Contact</a></div>
+			<a class="nav-cta" href="#contact">Book an appointment <span>↗</span></a>
+			<button class="menu-button" aria-label="Open navigation">☰</button>
+		</nav>
+	</header>
+
+	<main id="top">
+		<section class="hero">
+			<div class="container hero-grid">
+				<div class="hero-copy"><div class="eyebrow">Care, close to home</div><h1>Better health starts with being heard.</h1><p>At Harborview, every visit is built around your needs. Find expert care, trusted doctors, and a team that stays with you at every step.</p><div class="hero-actions"><a class="hero-cta" href="#contact">Find your care <span>↗</span></a><a class="text-link" href="#departments">Explore departments <span>→</span></a></div></div>
+				<div class="hero-visual"><img class="hero-image" src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1000&q=85" alt="Doctor speaking with a patient in a bright hospital room"><div class="hero-badge"><span class="badge-icon">✦</span><span>Trusted by our community for over 40 years</span></div></div>
+			</div>
+		</section>
+		<div class="quick-links"><div class="container quick-grid"><a class="quick-item" href="#contact"><span class="quick-icon">⌕</span><span><strong>Find a doctor</strong><span>Meet your care team</span></span></a><a class="quick-item" href="#departments"><span class="quick-icon">＋</span><span><strong>Our departments</strong><span>Specialized care, all in one place</span></span></a><a class="quick-item" href="#contact"><span class="quick-icon">▣</span><span><strong>Patient resources</strong><span>Plan your visit with confidence</span></span></a></div></div>
+
+		<section class="departments" id="departments"><div class="container"><div class="section-head"><div><div class="eyebrow">Care for every chapter</div><h2>Find the right care.</h2></div><p>From everyday wellness to complex conditions, our specialists work together to help you feel your best.</p></div><div class="department-grid"><article class="department"><span class="department-icon">♡</span><h3>Heart & vascular</h3><p>Advanced heart care from prevention to recovery.</p><a href="#contact">Learn more →</a></article><article class="department"><span class="department-icon">⌁</span><h3>Women's health</h3><p>Personalized care through every stage of life.</p><a href="#contact">Learn more →</a></article><article class="department"><span class="department-icon">◒</span><h3>Children's health</h3><p>Compassionate care for growing bodies and minds.</p><a href="#contact">Learn more →</a></article><article class="department"><span class="department-icon">✚</span><h3>Primary care</h3><p>A trusted partner for your everyday health.</p><a href="#contact">Learn more →</a></article></div></div></section>
+
+		<section class="care" id="doctors"><div class="container"><div class="section-head"><div><div class="eyebrow">People you can trust</div><h2>Meet your care team.</h2></div><p>Our doctors bring deep expertise and a human approach to every appointment.</p></div><div class="doctor-grid"><article class="doctor"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=85" alt="Dr. Elena Marquez"><div><h3>Dr. Elena Marquez</h3><p>Cardiology</p><p class="specialty">Heart health & prevention</p></div></article><article class="doctor"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=300&q=85" alt="Dr. James Okafor"><div><h3>Dr. James Okafor</h3><p>Primary care</p><p class="specialty">Family medicine</p></div></article><article class="doctor"><img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=300&q=85" alt="Dr. Priya Shah"><div><h3>Dr. Priya Shah</h3><p>Women's health</p><p class="specialty">Obstetrics & gynecology</p></div></article></div></div></section>
+
+		<section class="emergency" id="emergency"><div class="container emergency-inner"><div><h2>Here when you need us most.</h2><p>Our emergency department is open 24 hours a day, 7 days a week.</p></div><a class="emergency-phone" href="tel:911"><span class="phone-circle">☎</span><span>Call 911</span></a></div></section>
+
+		<section class="contact" id="contact"><div class="container contact-grid"><div><div class="eyebrow">We are here to help</div><h2>Come as you are.<br>We’ll take it from here.</h2><p class="contact-intro">Have a question or ready to schedule? Our team can help you find the right next step.</p><div class="contact-details"><div><strong>Call us</strong><span>(415) 555-0148</span></div><div><strong>Hours</strong><span>Mon–Fri, 8am–6pm</span></div><div><strong>Visit us</strong><span>240 Harbor Way<br>San Francisco, CA</span></div><div><strong>Email</strong><span>hello@harborview.org</span></div></div></div><div class="map-card" aria-label="Harborview Medical Center location"><div class="map-label">240 Harbor Way · Get directions ↗</div></div></div></section>
+	</main>
+	<footer><div class="container footer-inner"><span>© 2025 Harborview Medical Center</span><div class="footer-links"><a href="#contact">Privacy</a><a href="#contact">Accessibility</a><a href="#contact">Careers</a></div></div></footer>
+</body>
+</html>

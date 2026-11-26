@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Headlines Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>📰 News Headlines Viewer</h1>
+        <p>Stay updated with the latest news</p>
+    </header>
+
+    <main class="container">
+        <section class="toolbar">
+            <h2>Latest Headlines</h2>
+            <button id="refreshBtn">Refresh News</button>
+        </section>
+
+        <p id="status" role="status">Loading news...</p>
+        <p id="lastUpdated"></p>
+
+        <section id="newsContainer" class="news-grid"
+                 aria-label="News articles">
+            <!-- News articles will appear here -->
+        </section>
+    </main>
+
+    <footer>
+        <p>News Headlines Viewer | Auto-refreshes every 30 seconds</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

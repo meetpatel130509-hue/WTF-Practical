@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CityCare Patient Registration</title>
+  <style>
+    :root {
+      --bg-deep: #120d11;
+      --bg-mid: #1c1418;
+      --bg-glow: #2a1b1d;
+      --panel: rgba(27, 18, 20, 0.9);
+      --panel-strong: #1a1117;
+      --panel-alt: rgba(40, 25, 27, 0.9);
+      --gold: #f2c76d;
+      --gold-strong: #d99d2d;
+      --red: #c3372f;
+      --red-strong: #8d1d1b;
+      --ink: #f5e6c4;
+      --muted: #d8b98b;
+      --line: rgba(242, 199, 109, 0.45);
+      --field: rgba(16, 10, 11, 0.9);
+      --danger: #ff7a7a;
+      --success: #86efac;
+      --shadow: rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(194, 99, 45, 0.22), transparent 20%),
+        radial-gradient(circle at bottom left, rgba(255, 193, 92, 0.12), transparent 24%),
+        linear-gradient(140deg, var(--bg-deep), var(--bg-mid) 40%, var(--bg-glow));
+      color: var(--ink);
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 36px 18px;
+    }
+
+    .container {
+      width: min(100%, 700px);
+      background: linear-gradient(180deg, rgba(35, 22, 25, 0.96), rgba(22, 14, 16, 0.92));
+      border: 1px solid var(--line);
+      border-top: 6px solid var(--gold);
+      border-radius: 20px;
+      padding: 34px 34px 38px;
+      box-shadow:
+        0 0 0 1px rgba(242, 199, 109, 0.15),
+        0 25px 60px rgba(0, 0, 0, 0.42),
+        inset 0 0 20px rgba(242, 199, 109, 0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(242, 199, 109, 0.05), transparent);
+      pointer-events: none;
+    }
+
+    h2 {
+      margin: 0;
+      text-align: center;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 12px;
+      font-weight: 800;
+      text-shadow: 0 0 12px rgba(242, 199, 109, 0.45);
+    }
+
+    h3 {
+      margin: 14px 0 28px;
+      text-align: center;
+      color: var(--ink);
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.38);
+    }
+
+    form {
+      display: grid;
+      gap: 2px;
+      position: relative;
+      z-index: 1;
+    }
+
+    label {
+      display: block;
+      margin-top: 18px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(19, 13, 14, 0.9), rgba(32, 21, 23, 0.9));
+      color: var(--ink);
+      padding: 13px 14px;
+      font: inherit;
+      font-size: 15px;
+      transition: 0.2s ease all;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(235, 214, 179, 0.55);
+    }
+
+    input:hover,
+    select:hover,
+    textarea:hover {
+      border-color: rgba(242, 199, 109, 0.7);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(242, 199, 109, 0.18);
+      background: rgba(25, 18, 20, 1);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .error {
+      min-height: 18px;
+      margin-top: 6px;
+      font-size: 12.5px;
+      line-height: 1.4;
+      color: var(--danger);
+      font-weight: 700;
+    }
+
+    .success {
+      margin-top: 20px;
+      text-align: center;
+      color: var(--success);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    button {
+      margin-top: 26px;
+      width: 100%;
+      border: 1px solid rgba(242, 199, 109, 0.6);
+      border-radius: 12px;
+      padding: 15px 18px;
+      background: linear-gradient(135deg, var(--red), var(--red-strong));
+      color: #fff7dc;
+      font: inherit;
+      font-weight: 800;
+      font-size: 16px;
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      box-shadow: 0 12px 26px rgba(141, 29, 27, 0.42), inset 0 1px 0 rgba(255,255,255,0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(141, 29, 27, 0.52), inset 0 1px 0 rgba(255,255,255,0.18);
+      filter: brightness(1.06);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    button:focus-visible {
+      outline: 3px solid rgba(242, 199, 109, 0.3);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 22px 12px;
+      }
+
+      .container {
+        padding: 26px 20px 28px;
+        border-radius: 16px;
+      }
+
+      h3 {
+        margin-bottom: 22px;
+      }
+    }
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <h2>CityCare Hospital</h2>
+    <h3>Patient Registration Form</h3>
+ 
+    <form id="patientForm" novalidate>
+      <label for="name">Patient Name *</label>
+      <input type="text" id="name" placeholder="Enter full name"
+             autocomplete="name">
+      <div class="error" id="nameError" aria-live="polite"></div>
+ 
+      <label for="email">Email Address *</label>
+      <input type="text" id="email" placeholder="example@gmail.com"
+             autocomplete="email">
+      <div class="error" id="emailError" aria-live="polite"></div>
+ 
+      <label for="mobile">Mobile Number *</label>
+      <input type="text" id="mobile" placeholder="10-digit mobile number"
+             inputmode="numeric" maxlength="10" autocomplete="tel-national">
+      <div class="error" id="mobileError" aria-live="polite"></div>
+ 
+      <label for="dob">Date of Birth *</label>
+      <input type="date" id="dob">
+      <div class="error" id="dobError" aria-live="polite"></div>
+ 
+      <label for="gender">Gender *</label>
+      <select id="gender">
+        <option value="">Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+        <option value="Prefer not to say">Prefer not to say</option>
+      </select>
+      <div class="error" id="genderError" aria-live="polite"></div>
+ 
+      <label for="address">Address *</label>
+      <textarea id="address" rows="3" placeholder="Enter your address"></textarea>
+      <div class="error" id="addressError" aria-live="polite"></div>
+ 
+      <label for="password">Password *</label>
+      <input type="password" id="password" placeholder="Create a password"
+             autocomplete="new-password">
+      <div class="error" id="passwordError" aria-live="polite"></div>
+ 
+      <label for="confirmPassword">Confirm Password *</label>
+      <input type="password" id="confirmPassword"
+             placeholder="Re-enter password" autocomplete="new-password">
+      <div class="error" id="confirmError" aria-live="polite"></div>
+ 
+      <button type="submit">Register Patient</button>
+      <div id="result" class="success" role="status"
+           aria-live="polite"></div>
+    </form>
+  </div>
+ 
+  <script>
+    const form = document.getElementById("patientForm");
+ 
+    // Display an error message for a field.
+    function showError(id, message) {
+      document.getElementById(id + "Error").textContent = message;
+    }
+ 
+    // Clear previous errors and the status message.
+    function clearErrors() {
+      document.querySelectorAll(".error").forEach(function (el) {
+        el.textContent = "";
+      });
+      document.getElementById("result").textContent = "";
+    }
+ 
+    function validateName() {
+      const name = document.getElementById("name").value.trim();
+      const pattern = /^[A-Za-z][A-Za-z .'-]{1,49}$/;
+      if (name === "") {
+        showError("name", "Patient name is required.");
+        return false;
+      }
+      if (!pattern.test(name)) {
+        showError("name", "Enter a valid name (2–50 characters).");
+        return false;
+      }
+      return true;
+    }
+ 
+    function validateEmail() {
+      const email = document.getElementById("email").value.trim();
+      const pattern =
+        /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+      if (email === "") {
+        showError("email", "Email is required.");
+        return false;
+      }
+      if (!pattern.test(email)) {
+        showError("email", "Enter a valid email address.");
+        return false;
+      }
+      return true;
+    }
+ 
+    function validateMobile() {
+      const mobile = document.getElementById("mobile").value.trim();
+      const pattern = /^[6-9][0-9]{9}$/;
+      if (mobile === "") {
+        showError("mobile", "Mobile number is required.");
+        return false;
+      }
+      if (!pattern.test(mobile)) {
+        showError("mobile",
+          "Enter a valid 10-digit Indian mobile number.");
+        return false;
+      }
+      return true;
+    }
+ 
+    function validateDOB() {
+      const dob = document.getElementById("dob").value;
+      if (dob === "") {
+        showError("dob", "Date of birth is required.");
+        return false;
+      }
+      const selectedDate = new Date(dob + "T00:00:00");
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      if (Number.isNaN(selectedDate.getTime()) ||
+          selectedDate > today) {
+        showError("dob", "Date of birth cannot be in the future.");
+        return false;
+      }
+      return true;
+    }
+ 
+    function validateGender() {
+      const gender = document.getElementById("gender").value;
+      if (gender === "") {
+        showError("gender", "Please select your gender.");
+        return false;
+      }
+      return true;
+    }
+ 
+    function validateAddress() {
+      const address =
+        document.getElementById("address").value.trim();
+      if (address === "") {
+        showError("address", "Address is required.");
+        return false;
+      }
+      if (address.length < 5 || address.length > 200) {
+        showError("address",
+          "Address must contain 5–200 characters.");
+        return false;
+      }
+      return true;
+    }
+ 
+    function validatePassword() {
+      const password = document.getElementById("password").value;
+      const pattern =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9\s])\S{8,64}$/;
+      if (password === "") {
+        showError("password", "Password is required.");
+        return false;
+      }
+      if (!pattern.test(password)) {
+        showError("password",
+          "Use 8–64 characters with uppercase, lowercase, " +
+          "a number and a special character.");
+        return false;
+      }
+      return true;  
+    }
+ 
+    function validateConfirmPassword() {
+      const password = document.getElementById("password").value;
+      const confirm =
+        document.getElementById("confirmPassword").value;
+      if (confirm === "") {
+        showError("confirm", "Please confirm your password.");
+        return false;
+      }
+      if (password !== confirm) {
+        showError("confirm", "Passwords do not match.");
+        return false;
+      }
+      return true;
+    }
+ 
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      clearErrors();
+ 
+      const isValid = [
+        validateName(),
+        validateEmail(),
+        validateMobile(),
+        validateDOB(),
+        validateGender(),
+        validateAddress(),
+        validatePassword(),
+        validateConfirmPassword()
+      ].every(Boolean);
+ 
+      if (isValid) {
+        document.getElementById("result").textContent =
+          "Registration form validated successfully!";
+        // Demonstration only: no data is sent or stored.
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>
+Displaying Index.html.

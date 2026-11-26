@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Book Management System</title>
+    <link rel="stylesheet" href="supply8-3.css">
+</head>
+<body>
+
+    <header>
+        <h1>Library Book Management System</h1>
+        <p>Manage your library books easily</p>
+    </header>
+
+    <div class="container">
+
+        <section class="form-section">
+            <h2 id="formTitle">Add New Book</h2>
+
+            <form id="bookForm">
+                <input type="hidden" id="editId">
+
+                <label>Book ID</label>
+                <input type="text" id="bookId"
+                       placeholder="Enter Book ID" required>
+
+                <label>Book Title</label>
+                <input type="text" id="title"
+                       placeholder="Enter Book Title" required>
+
+                <label>Author Name</label>
+                <input type="text" id="author"
+                       placeholder="Enter Author Name" required>
+
+                <label>Category</label>
+                <select id="category" required>
+                    <option value="">Select Category</option>
+                    <option>Computer Science</option>
+                    <option>Mathematics</option>
+                    <option>Science</option>
+                    <option>Literature</option>
+                    <option>History</option>
+                    <option>Other</option>
+                </select>
+
+                <label>Publication Year</label>
+                <input type="number" id="year"
+                       placeholder="Enter Publication Year"
+                       min="1000" required>
+
+                <label>Quantity</label>
+                <input type="number" id="quantity"
+                       placeholder="Enter Quantity" min="1" required>
+
+                <button type="submit" id="submitBtn">
+                    Add Book
+                </button>
+
+                <button type="button" id="cancelBtn"
+                        class="cancel" hidden>
+                    Cancel Edit
+                </button>
+            </form>
+
+            <p id="message"></p>
+        </section>
+
+        <section class="list-section">
+            <h2>Book Records</h2>
+
+            <input type="text" id="searchInput"
+                   placeholder="Search by ID, title, author or category...">
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Book ID</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Category</th>
+                            <th>Year</th>
+                            <th>Quantity</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookTable">
+                    </tbody>
+                </table>
+            </div>
+
+            <p id="totalBooks">Total Books: 0</p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Library Management System</p>
+    </footer>
+
+    <script src="supply8-3.js"></script>
+</body>
+</html>

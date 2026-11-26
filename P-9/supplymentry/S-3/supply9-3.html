@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Information System</title>
+    <link rel="stylesheet" href="supply9-3.css">
+</head>
+<body>
+
+    <header>
+        <h1>🎬 Movie Information System</h1>
+        <p>Search movies and explore their details</p>
+    </header>
+
+    <main class="container">
+
+        <section class="search-section">
+            <h2>Search Movies</h2>
+
+            <form id="searchForm">
+                <input
+                    type="text"
+                    id="movieInput"
+                    placeholder="Enter movie name..."
+                    required
+                >
+                <button type="submit">Search</button>
+            </form>
+
+            <p id="message"></p>
+        </section>
+
+        <section class="results-section">
+            <h2>Movie Results</h2>
+
+            <div id="movieContainer" class="movie-container">
+                <p class="info">Search for a movie to see information.</p>
+            </div>
+        </section>
+
+        <section id="detailsSection" class="details-section" hidden>
+            <h2>Movie Information</h2>
+            <div id="movieDetails"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Movie Information System</p>
+        <p>Powered by OMDb API</p>
+    </footer>
+
+    <script src="supply9-3.js"></script>
+</body>
+</html>

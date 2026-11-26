@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="The Department of Environmental Design at Northbridge College. Learn, question, and shape better places.">
+	<title>Environmental Design | Northbridge College</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--ink: #172321;
+			--muted: #64706c;
+			--paper: #f4f0e8;
+			--cream: #faf8f2;
+			--sage: #b9c9b5;
+			--forest: #24453d;
+			--rust: #c96442;
+			--line: rgba(23, 35, 33, .16);
+			--serif: "Playfair Display", Georgia, serif;
+			--sans: "DM Sans", Arial, sans-serif;
+			--mono: "DM Mono", monospace;
+		}
+
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); line-height: 1.5; }
+		a { color: inherit; text-decoration: none; }
+		a:focus-visible, button:focus-visible { outline: 3px solid var(--rust); outline-offset: 4px; }
+		.container { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+		.eyebrow { color: var(--forest); font: 500 .72rem var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+
+		header { border-bottom: 1px solid var(--line); background: var(--paper); }
+		.topbar { min-height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+		.brand { display: flex; align-items: center; gap: 12px; font-size: .8rem; font-weight: 700; letter-spacing: .03em; line-height: 1.15; text-transform: uppercase; }
+		.mark { display: grid; place-items: center; width: 37px; height: 37px; border: 1px solid var(--ink); border-radius: 50%; color: var(--rust); font: 600 1rem var(--serif); }
+		nav { display: flex; align-items: center; gap: 27px; font-size: .84rem; }
+		nav a { color: #4b5955; }
+		nav a:hover { color: var(--rust); }
+		.apply-link { color: var(--ink); border-bottom: 1px solid var(--rust); padding-bottom: 4px; }
+
+		.hero { position: relative; min-height: 600px; display: grid; align-items: center; overflow: hidden; background: var(--forest); color: var(--cream); }
+		.hero::before { content: ""; position: absolute; inset: 0; opacity: .17; background-image: linear-gradient(120deg, transparent 48%, var(--sage) 49%, transparent 50%), linear-gradient(30deg, transparent 48%, var(--sage) 49%, transparent 50%); background-size: 92px 92px; }
+		.hero::after { content: ""; position: absolute; right: -10%; top: -24%; width: 58vw; height: 90vh; border: 1px solid rgba(250,248,242,.26); border-radius: 50%; transform: rotate(-24deg); }
+		.hero-inner { position: relative; z-index: 1; padding-block: 92px 80px; }
+		.hero .eyebrow { color: var(--sage); }
+		h1, h2, h3, p { margin-top: 0; }
+		h1 { max-width: 850px; margin: 18px 0 27px; font: 600 clamp(3.3rem, 8vw, 7rem)/.96 var(--serif); letter-spacing: -.035em; }
+		.hero-copy { max-width: 500px; color: #dce4d9; font-size: 1.05rem; }
+		.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+		.button { display: inline-flex; align-items: center; gap: 12px; padding: 13px 18px; border: 1px solid var(--sage); font-size: .83rem; font-weight: 700; transition: transform .2s, background .2s; }
+		.button:hover { transform: translateY(-3px); }
+		.button.primary { border-color: var(--rust); background: var(--rust); color: white; }
+		.button.secondary:hover { background: rgba(255,255,255,.1); }
+		.hero-note { position: absolute; right: 0; bottom: 54px; width: 180px; color: var(--sage); font: .68rem/1.5 var(--mono); text-transform: uppercase; }
+
+		.intro { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; padding: 105px 0 112px; }
+		.intro h2, .section-heading h2 { margin: 11px 0 20px; font: 600 clamp(2.1rem, 4vw, 3.45rem)/1.05 var(--serif); letter-spacing: -.03em; }
+		.intro p { max-width: 560px; color: var(--muted); font-size: 1.05rem; }
+		.stat-row { display: grid; grid-template-columns: repeat(3, 1fr); align-self: end; border-top: 1px solid var(--line); }
+		.stat { padding: 18px 17px 0 0; border-right: 1px solid var(--line); }
+		.stat + .stat { padding-left: 17px; }
+		.stat:last-child { border: 0; }
+		.stat strong { display: block; margin-bottom: 4px; font: 600 2rem var(--serif); }
+		.stat span { color: var(--muted); font-size: .76rem; }
+
+		.programs { padding: 86px 0 100px; background: var(--cream); }
+		.section-heading { display: flex; justify-content: space-between; align-items: end; margin-bottom: 40px; gap: 30px; }
+		.section-heading p { max-width: 350px; margin-bottom: 5px; color: var(--muted); font-size: .88rem; }
+		.program-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border: 1px solid var(--line); background: var(--line); }
+		.program { min-height: 260px; padding: 29px 26px; background: var(--cream); transition: background .2s; }
+		.program:hover { background: var(--sage); }
+		.program-number { color: var(--rust); font: .72rem var(--mono); }
+		.program h3 { margin: 47px 0 11px; font: 600 1.65rem/1.05 var(--serif); }
+		.program p { color: var(--muted); font-size: .85rem; }
+		.program .arrow { display: block; margin-top: 25px; font-size: 1.2rem; }
+
+		.feature { display: grid; grid-template-columns: .92fr 1.08fr; min-height: 470px; background: var(--sage); }
+		.feature-image { min-height: 350px; background: linear-gradient(145deg, rgba(36,69,61,.1), rgba(36,69,61,.5)), url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85") center/cover; }
+		.feature-copy { display: flex; flex-direction: column; justify-content: center; padding: 70px clamp(32px, 7vw, 105px); }
+		.feature-copy h2 { max-width: 470px; margin: 14px 0 17px; font: 600 clamp(2rem, 4vw, 3.5rem)/1.03 var(--serif); letter-spacing: -.03em; }
+		.feature-copy p { max-width: 430px; color: #3f554d; }
+		.text-link { width: max-content; margin-top: 15px; padding-bottom: 6px; border-bottom: 1px solid var(--ink); font-size: .8rem; font-weight: 700; }
+
+		.events-contact { display: grid; grid-template-columns: 1.15fr .85fr; gap: 80px; padding: 100px 0 108px; }
+		.event { display: grid; grid-template-columns: 82px 1fr auto; align-items: center; gap: 18px; padding: 20px 0; border-top: 1px solid var(--line); }
+		.event:last-child { border-bottom: 1px solid var(--line); }
+		.date { color: var(--rust); font: .72rem/1.3 var(--mono); text-transform: uppercase; }
+		.event h3 { margin: 0; font: 600 1.17rem var(--serif); }
+		.event span:last-child { color: var(--muted); font-size: .77rem; }
+		.contact { align-self: start; padding: 30px; background: var(--forest); color: var(--cream); }
+		.contact .eyebrow { color: var(--sage); }
+		.contact h2 { margin: 14px 0 27px; font: 600 2.5rem/1.05 var(--serif); }
+		.contact address { color: #dce4d9; font-style: normal; font-size: .9rem; }
+		.contact address a { display: block; margin-top: 8px; color: var(--sage); }
+		.contact .button { margin-top: 30px; }
+
+		footer { padding: 24px 0; border-top: 1px solid var(--line); color: var(--muted); font: .68rem var(--mono); }
+		.footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+		@media (max-width: 760px) {
+			.container { width: min(100% - 32px, 600px); }
+			.topbar { min-height: 70px; }
+			nav { gap: 12px; font-size: .72rem; }
+			nav a:nth-child(-n+3) { display: none; }
+			.hero { min-height: 620px; }
+			.hero-inner { padding-block: 80px 100px; }
+			h1 { font-size: clamp(3.3rem, 17vw, 5.6rem); }
+			.hero-note { position: static; margin-top: 58px; }
+			.intro, .events-contact { grid-template-columns: 1fr; gap: 48px; padding-block: 72px; }
+			.stat-row { margin-top: 10px; }
+			.section-heading { display: block; margin-bottom: 27px; }
+			.section-heading p { margin-top: 17px; }
+			.program-grid { grid-template-columns: 1fr; }
+			.program { min-height: 210px; }
+			.program h3 { margin-top: 35px; }
+			.feature { grid-template-columns: 1fr; }
+			.feature-image { min-height: 270px; }
+			.feature-copy { padding: 54px 32px 64px; }
+			.event { grid-template-columns: 68px 1fr; }
+			.event span:last-child { grid-column: 2; }
+			.footer-inner { display: block; }
+			.footer-inner span + span { display: block; margin-top: 8px; }
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="container topbar">
+			<a class="brand" href="#top" aria-label="Northbridge College home"><span class="mark">N</span><span>Northbridge<br>College</span></a>
+			<nav aria-label="Main navigation">
+				<a href="#about">About</a><a href="#programs">Programs</a><a href="#faculty">Faculty</a><a href="#events">Events</a><a class="apply-link" href="#contact">Get in touch <span aria-hidden="true">&#8599;</span></a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="top">
+		<section class="hero" aria-labelledby="hero-title">
+			<div class="container hero-inner">
+				<div class="eyebrow">School of Arts &amp; Built Environment / Est. 1987</div>
+				<h1 id="hero-title">Design a world worth living in.</h1>
+				<p class="hero-copy">Environmental Design is where architecture, ecology, and civic imagination meet. Study the systems that shape our shared places.</p>
+				<div class="hero-actions"><a class="button primary" href="#programs">Explore programs <span aria-hidden="true">&#8594;</span></a><a class="button secondary" href="#about">Meet the department</a></div>
+				<div class="hero-note">Applications for Fall 2026<br>are now open</div>
+			</div>
+		</section>
+
+		<section class="container intro" id="about" aria-labelledby="about-title">
+			<div><div class="eyebrow">01 / A different kind of studio</div><h2 id="about-title">Learn by looking closer.</h2></div>
+			<div><p>We believe the most urgent design questions are also the most human ones. Our students work across disciplines and scales, from a neighborhood block to a changing climate.</p><p>With small cohorts, generous workshops, and a faculty who practice what they teach, you will find room here to make, test, listen, and begin again.</p><div class="stat-row"><div class="stat"><strong>12:1</strong><span>Student / faculty ratio</span></div><div class="stat"><strong>38</strong><span>Years of making</span></div><div class="stat"><strong>94%</strong><span>Employed in field</span></div></div></div>
+		</section>
+
+		<section class="programs" id="programs" aria-labelledby="programs-title">
+			<div class="container"><div class="section-heading"><div><div class="eyebrow">02 / Find your direction</div><h2 id="programs-title">Programs of study</h2></div><p>Build a practice grounded in curiosity, craft, and the communities you hope to serve.</p></div>
+				<div class="program-grid"><a class="program" href="#contact"><span class="program-number">01 / UNDERGRADUATE</span><h3>Environmental Design, B.A.</h3><p>A four-year foundation in spatial thinking and sustainable futures.</p><span class="arrow" aria-hidden="true">&#8594;</span></a><a class="program" href="#contact"><span class="program-number">02 / GRADUATE</span><h3>Urban Ecologies, M.A.</h3><p>Research-led design for resilient cities and living landscapes.</p><span class="arrow" aria-hidden="true">&#8594;</span></a><a class="program" href="#contact"><span class="program-number">03 / CONTINUING</span><h3>Summer Field School</h3><p>Intensive, place-based study for professionals and lifelong learners.</p><span class="arrow" aria-hidden="true">&#8594;</span></a></div>
+			</div>
+		</section>
+
+		<section class="feature" id="faculty" aria-labelledby="faculty-title"><div class="feature-image" role="img" aria-label="Students collaborating around a table in a bright design studio"></div><div class="feature-copy"><div class="eyebrow">03 / The people here</div><h2 id="faculty-title">Teachers who stay curious.</h2><p>Our faculty are architects, landscape designers, historians, and organizers. They bring active practices into the studio and invite you into the work.</p><a class="text-link" href="#contact">Discover the faculty <span aria-hidden="true">&#8599;</span></a></div></section>
+
+		<section class="container events-contact" id="events" aria-label="Events and contact information"><div><div class="section-heading"><div><div class="eyebrow">04 / Come by sometime</div><h2>What is happening</h2></div></div><div class="event"><div class="date">Sep<br>12</div><h3>Opening lecture: The Living City</h3><span>6:00 PM / Hall 204</span></div><div class="event"><div class="date">Oct<br>03</div><h3>Fall studio exhibitions</h3><span>5:30 PM / Design Gallery</span></div><div class="event"><div class="date">Nov<br>18</div><h3>Alumni in practice</h3><span>12:00 PM / Online</span></div></div>
+			<aside class="contact" id="contact" aria-labelledby="contact-title"><div class="eyebrow">05 / Start a conversation</div><h2 id="contact-title">Come find your place.</h2><address>Department of Environmental Design<br>Northbridge College<br>41 Wren Street<br>Brookhaven, NY 11208<a href="mailto:design@northbridge.edu">design@northbridge.edu</a><a href="tel:+12125550184">+1 212 555 0184</a></address><a class="button secondary" href="mailto:design@northbridge.edu">Email the department <span aria-hidden="true">&#8599;</span></a></aside>
+		</section>
+	</main>
+	<footer><div class="container footer-inner"><span>&copy; 2026 Northbridge College / Environmental Design</span><span>Made for people who notice things.</span></div></footer>
+</body>
+</html>

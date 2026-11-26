@@ -1,0 +1,36 @@
+
+{
+    "dashboardTitle": "Weather Information Dashboard",
+    "defaultCity": "Ahmedabad",
+    "temperatureUnit": "celsius",
+    "weather": [
+        {
+            "city": "Ahmedabad",
+            "country": "India",
+            "temperature": 32,
+            "feelsLike": 35,
+            "humidity": 55,
+            "windSpeed": 12,
+            "condition": "Partly Cloudy"
+        },
+        {
+            "city": "Mumbai",
+            "country": "India",
+            "temperature": 30,
+            "feelsLike": 34,
+            "humidity": 75,
+            "windSpeed": 15,
+            "condition": "Cloudy"
+        },
+        {
+            "city": "Delhi",
+            "country": "India",
+            "temperature": 29,
+            "feelsLike": 31,
+            "humidity": 48,
+            "windSpeed": 10,
+            "condition": "Sunny"
+        }
+    ],
+    "refreshIntervalSeconds": 300
+}

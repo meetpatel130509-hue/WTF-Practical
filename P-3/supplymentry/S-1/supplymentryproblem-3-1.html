@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#f4f5ee">
+	<title>Student Result Calculator</title>
+	<link rel="stylesheet" href="supplymentryproblem3-1.css">
+</head>
+<body>
+	<main class="page">
+		<header class="masthead">
+			<div class="brand"><span class="brand-mark" aria-hidden="true">S</span> CAMPUS / ACADEMICS</div>
+			<div class="scale-note">Pass mark: 35 per subject<br>Maximum: 100 per subject</div>
+		</header>
+		<section class="intro" aria-labelledby="page-title">
+			<p class="eyebrow">Academic tools</p>
+			<h1 id="page-title">Student Result<br>Calculator</h1>
+		</section>
+		<div class="layout">
+			<form class="panel form-panel" id="result-form" novalidate>
+				<div class="section-heading"><h2>Student details</h2><span class="section-caption">Enter marks out of 100</span></div>
+				<div class="student-fields">
+					<div><label for="student-name">Student name</label><input id="student-name" name="studentName" type="text" placeholder="e.g. Asha Patel" autocomplete="name" maxlength="80"></div>
+					<div><label for="roll-number">Roll number</label><input id="roll-number" name="rollNumber" type="text" placeholder="e.g. 24-108" maxlength="30"></div>
+				</div>
+				<div class="section-heading"><h2>Subject marks</h2><span class="section-caption" id="subject-count">3 subjects</span></div>
+				<div class="subjects-heading" aria-hidden="true"><span>Subject</span><span>Marks / 100</span><span></span></div>
+				<div class="subjects-list" id="subjects-list"></div>
+				<button class="add-button" id="add-subject" type="button"><span aria-hidden="true">+</span> Add subject</button>
+				<p class="error-message" id="form-error" role="alert" aria-live="polite"></p>
+				<div class="actions"><button class="primary-button" type="submit">Calculate result</button><button class="secondary-button" id="reset-form" type="reset">Clear</button></div>
+			</form>
+			<aside class="panel result-panel" id="result-panel" data-state="empty" aria-live="polite" aria-label="Student result">
+				<div class="result-top">
+					<p class="result-label">Result summary</p><p class="result-name" id="result-name">Awaiting student</p>
+					<div class="grade-line"><div class="grade" id="result-grade">—</div><div class="classification" id="result-classification">Not calculated</div></div>
+				</div>
+				<div class="result-body">
+					<div class="stat-row"><span>Total marks</span><strong id="result-total">—</strong></div>
+					<div class="stat-row"><span>Percentage</span><strong id="result-percentage">—</strong></div>
+					<div class="stat-row"><span>Subjects passed</span><strong id="result-passed">—</strong></div>
+					<p class="result-placeholder" id="result-note">Add marks for each subject, then calculate to see the final result.</p>
+					<div class="scale" aria-label="Grade scale"><span>A+ &nbsp;90–100</span><span>A &nbsp;80–89</span><span>B &nbsp;70–79</span><span>C &nbsp;60–69</span><span>D &nbsp;50–59</span><span>E &nbsp;35–49</span><span>F &nbsp;below 35</span></div>
+				</div>
+			</aside>
+		</div>
+	</main>
+	<script src="supplymentryproblem3-1.js" defer></script>
+</body>
+</html>

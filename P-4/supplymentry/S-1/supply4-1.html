@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Student Attendance Dashboard</h1>
+        <p>Manage and track student attendance easily</p>
+    </header>
+
+    <main class="container">
+
+        <!-- Dashboard Summary -->
+        <section class="summary">
+            <div class="summary-card">
+                <h3>Total Students</h3>
+                <p id="totalStudents">0</p>
+            </div>
+
+            <div class="summary-card present">
+                <h3>Present</h3>
+                <p id="presentCount">0</p>
+            </div>
+
+            <div class="summary-card absent">
+                <h3>Absent</h3>
+                <p id="absentCount">0</p>
+            </div>
+
+            <div class="summary-card percentage">
+                <h3>Attendance</h3>
+                <p id="attendancePercentage">0%</p>
+            </div>
+        </section>
+
+        <!-- Date Selection -->
+        <section class="controls">
+            <div>
+                <label for="attendanceDate">Select Date:</label>
+                <input type="date" id="attendanceDate">
+            </div>
+
+            <div>
+                <label for="searchStudent">Search Student:</label>
+                <input type="text" id="searchStudent"
+                    placeholder="Enter student name or roll number">
+            </div>
+        </section>
+
+        <!-- Add Student -->
+        <section class="add-student">
+            <h2>Add New Student</h2>
+
+            <form id="studentForm">
+                <input type="text" id="studentName"
+                    placeholder="Student Name" required>
+
+                <input type="text" id="rollNumber"
+                    placeholder="Roll Number" required>
+
+                <button type="submit">Add Student</button>
+            </form>
+        </section>
+
+        <!-- Attendance Table -->
+        <section class="attendance-section">
+            <h2>Student Attendance Records</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Roll No.</th>
+                            <th>Student Name</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="attendanceTable">
+                        <!-- JavaScript adds students here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="actions">
+            <button id="markAllPresent">Mark All Present</button>
+            <button id="resetAttendance" class="reset">
+                Reset Attendance
+            </button>
+        </div>
+
+        <p id="message" aria-live="polite"></p>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Student Attendance Dashboard</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

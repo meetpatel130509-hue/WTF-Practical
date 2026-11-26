@@ -1,0 +1,158 @@
+
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Navigation */
+.navbar-brand {
+    font-size: 24px;
+}
+
+.nav-link {
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.nav-link:hover {
+    color: #ffc107 !important;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.65),
+        rgba(0, 0, 0, 0.65)
+    ),
+    url("https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1600")
+    center/cover no-repeat;
+
+    min-height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 15px;
+}
+
+/* Section Titles */
+.section-title {
+    color: #174a8b;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Event Cards */
+.card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    color: #174a8b;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Filter Buttons */
+.filter-btn {
+    margin: 5px;
+}
+
+/* Registration Form */
+.registration-box {
+    max-width: 550px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.form-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-control,
+.form-select {
+    padding: 11px;
+}
+
+/* Contact Section */
+#contact {
+    line-height: 1.8;
+}
+
+/* Footer */
+footer {
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .hero {
+        min-height: 350px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 26px;
+    }
+
+    .registration-box {
+        padding: 20px;
+    }
+
+    .filter-btn {
+        margin: 4px 2px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero h1 {
+        font-size: 27px;
+    }
+
+    .card-img-top {
+        height: 180px;
+    }
+
+    .navbar-brand {
+        font-size: 20px;
+    }
+}

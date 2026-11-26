@@ -1,0 +1,153 @@
+
+/* GENERAL STYLING */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 75px;
+}
+
+
+/* HOME SECTION */
+
+.hero {
+    background-color: #fff3e8;
+}
+
+.hero img {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+}
+
+
+/* CATEGORY SECTION */
+
+.category-card {
+    background-color: #fff3e8;
+    padding: 30px 15px;
+    border-radius: 15px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.category-card:hover {
+    background-color: #dc3545;
+    color: white;
+    transform: translateY(-5px);
+}
+
+
+/* FOOD CARDS */
+
+.food-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.food-card:hover {
+    transform: translateY(-8px);
+}
+
+.food-card img {
+    height: 180px;
+    object-fit: cover;
+}
+
+
+/* OFFER SECTION */
+
+.offer-section {
+    background: linear-gradient(
+        120deg,
+        #dc3545,
+        #ff7b32
+    );
+}
+
+
+/* BUTTONS */
+
+.btn-danger {
+    border-radius: 25px;
+    padding: 10px 22px;
+}
+
+
+/* CONTACT FORM */
+
+form {
+    background: #fff3e8;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.form-control {
+    padding: 12px;
+}
+
+.form-control:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 5px rgba(220, 53, 69, 0.3);
+}
+
+
+/* FOOTER */
+
+footer {
+    margin-top: 20px;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+/* Mobile devices */
+
+@media (max-width: 576px) {
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero img {
+        margin-top: 20px;
+    }
+
+    .category-card {
+        padding: 20px 10px;
+    }
+
+    .food-card img {
+        height: 150px;
+    }
+
+}
+
+
+/* Tablet devices */
+
+@media (min-width: 577px) and (max-width: 991px) {
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .food-card img {
+        height: 170px;
+    }
+
+}
